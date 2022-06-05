@@ -1,13 +1,24 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# a test fixture is a specification of the initial contents of
+# a model (or models) under test.
+# contain test data in YAML format. Each fixture file contains the data for a single model.
+
+# you must use spaces, not tabs, at the start of each of the
+# data lines, and all the lines for a row must have the same indentation.
 
 one:
   title: MyString
   description: MyText
-  image_url: MyString
+  image_url: lorem.jpg
   price: 9.99
 
 two:
   title: MyString
   description: MyText
-  image_url: MyString
+  image_url: lorem.jpg
   price: 9.99
+
+ruby:
+  title: programming
+  description: Ruby is the fastest growing and most exciting dynamic
+  image_url: lorem.png
+  price: 1.2
