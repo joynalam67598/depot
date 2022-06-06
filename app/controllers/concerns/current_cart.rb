@@ -5,7 +5,7 @@ module CurrentCart
 #         cart record isn’t found, this method will proceed to create a new Cart and then store the ID of the created
 # cart into the session.
         rescue ActiveRecord::RecordNotFound
-            @cart = Cart.new
+            @cart = Cart.create
             session[:cart_id] = @cart.id
         end
 end
