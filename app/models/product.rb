@@ -7,4 +7,18 @@ class Product < ApplicationRecord
         with: %r{\.(gif|jpg|png|jpeg)\z}i,
         message: 'image must be in GIF, JPG or PNG format.'
     }
+
+    has_many :line_items
+
+    before_destroy :ensure_not_referenced_by_any_line_item
+
+# ensure that there are no line items referencing this product
+#hook method -> called before Rails attempts to destroy a row
+    private 
+        def ensure_not_referenced_by_any_line_item 
+            unless line_items.empty?
+                errors.add(:base,'Line item present')
+                throw :abort
+            end
+        end
 end
