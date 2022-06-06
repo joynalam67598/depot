@@ -1,0 +1,12 @@
+<%# This template tells the browser to replace the content of the element whose
+id is cart with that HTML. %>
+<%# This template tells the browser to replace the content of the element whose
+id is cart with that HTML. %>
+cart = document.getElementById("cart")
+cart.innerHTML = "<%= j render(@cart) %>" 
+<%# convenient alias named j(),converts this Ruby string into a format
+acceptable as input to JavaScript. %>
+
+
+notice = document.getElementById("notice")
+if (notice) notice.style.display = "none"
