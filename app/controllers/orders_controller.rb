@@ -28,7 +28,8 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        OrderMailer.received(@order).deliver_later
+        # OrderMailer.received(@order).deliver_later
+        ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
         format.html do
           redirect_to store_index_url,
                       notice: 'Thank you for your order!'
