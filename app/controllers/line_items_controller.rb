@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  skip_before_action :authorize, only: :create
   include CurrentCart # module we created added to call set Cart before create a line item.
   # after including we can access all instance var of this module
   before_action :set_cart, only: [:create]
