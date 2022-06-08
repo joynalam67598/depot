@@ -11,7 +11,7 @@ class OrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    post line_item_url, params:{product_id:products(:ruby),id}
+    post line_item_url, params:{product_id:products(:ruby).id}
 
     get new_order_url
     assert_response :success
